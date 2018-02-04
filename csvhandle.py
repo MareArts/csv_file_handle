@@ -47,8 +47,12 @@ class CSV_managerSimple:
             for add_loop in range(j - i):
                 oneRow = next(csvPoint)
                 IJ_row_KL_col = IJ_row_KL_col + [oneRow[k:l]]
-
             return IJ_row_KL_col
+
+    def getLengh_of_RowCol(self, csv_file_name):
+        firstRow = self.getFirstRow(csv_file_name)
+        firstCol = self.getFirstCol(csv_file_name)
+        return [len(firstRow), len(firstCol)]
 
     def writeCSV(self, csv_file_name, data):
         with open(csv_file_name, 'w') as csvfile:
@@ -79,6 +83,10 @@ print(SomeRow)
 #get i~j Row, k~l col
 SomeRowCol = msgManger.get_ItoJ_Row_and_KtoL_Col('./data/csvTest.csv', 1,3,1,3)
 print(SomeRowCol)
+
+#count of line in row, col
+RowColLength = msgManger.getLengh_of_RowCol('./data/csvTest.csv')
+print(RowColLength)
 
 #write csv
 msgManger.writeCSV("./data/write_test.csv", SomeRowCol)
