@@ -1,6 +1,10 @@
 # csv_file_handle
 csv element access python
 
+description <br>
+http://study.marearts.com/2018/02/python-csv-file-data-simple-handler.html
+
+
 usage
 <pre>
 ##make object
