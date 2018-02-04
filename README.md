@@ -2,7 +2,7 @@
 csv element access python
 
 usage
-
+<pre>
 ##make object
 msgManger = CSV_managerSimple()
 
@@ -28,3 +28,4 @@ print(SomeRowCol)
 
 #write csv
 msgManger.writeCSV("./data/write_test.csv", SomeRowCol)
+</pre>
