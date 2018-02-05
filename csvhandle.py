@@ -60,6 +60,23 @@ class CSV_managerSimple:
             for it in range(len(data)):
                 csvPoint.writerow(data[it])
 
+    def convertStrToInt_listsOfList(self, inlist):
+        outlist = [[int(num) for num in sub] for sub in inlist]
+        return outlist
+
+    def getWholeData(self, csv_file_name):
+        with open(csv_file_name, 'r') as csvfile:
+            csvPoint = csv.reader(csvfile)
+            output =[]
+            for line in csvPoint:
+                output = output + [line]
+        return output
+
+
+
+
+'''
+##usage example!
 
 ##Test
 msgManger = CSV_managerSimple()
@@ -91,6 +108,6 @@ print(RowColLength)
 #write csv
 msgManger.writeCSV("./data/write_test.csv", SomeRowCol)
 
-
+'''
 
 
