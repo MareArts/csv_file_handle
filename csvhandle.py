@@ -50,8 +50,8 @@ class CSV_managerSimple:
             return IJ_row_KL_col
 
     def getLengh_of_RowCol(self, csv_file_name):
-        firstRow = self.getFirstRow(csv_file_name)
-        firstCol = self.getFirstCol(csv_file_name)
+        firstCol = self.getFirstRow(csv_file_name)
+        firstRow = self.getFirstCol(csv_file_name)
         return [len(firstRow), len(firstCol)]
 
     def writeCSV(self, csv_file_name, data):
