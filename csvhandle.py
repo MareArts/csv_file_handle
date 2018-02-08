@@ -60,15 +60,49 @@ class CSV_managerSimple:
             for it in range(len(data)):
                 csvPoint.writerow(data[it])
 
+    def writeCSV_add(self, csv_file_name, data):
+        with open(csv_file_name, 'a') as csvfile:
+            csvPoint = csv.writer(csvfile)
+            for it in range(len(data)):
+                csvPoint.writerow(data[it])
+
+
+    def divideAllElementByFloat_listsOfList(self, inlist, f):
+        outlist = [[float(num/f) for num in sub] for sub in inlist]
+        return outlist
+
     def convertStrToInt_listsOfList(self, inlist):
         outlist = [[int(num) for num in sub] for sub in inlist]
         return outlist
 
-    def getWholeData(self, csv_file_name):
+    def convertStrToFloat_listsOfList(self, inlist):
+        outlist = [[float(num) for num in sub] for sub in inlist]
+        return outlist
+
+    def getWholeData_i(self, csv_file_name):
         with open(csv_file_name, 'r') as csvfile:
             csvPoint = csv.reader(csvfile)
             output =[]
             for line in csvPoint:
+                line = list(map(int, line))
+                output = output + [line]
+        return output
+
+    def getWholeData_s(self, csv_file_name):
+        with open(csv_file_name, 'r') as csvfile:
+            csvPoint = csv.reader(csvfile)
+            output =[]
+            for line in csvPoint:
+                line = list(line)
+                output = output + [line]
+        return output
+
+    def getWholeData_f(self, csv_file_name):
+        with open(csv_file_name, 'r') as csvfile:
+            csvPoint = csv.reader(csvfile)
+            output =[]
+            for line in csvPoint:
+                line = list(map(float, line))
                 output = output + [line]
         return output
 
